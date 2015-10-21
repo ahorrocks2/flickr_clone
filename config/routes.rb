@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :home, :only => [ :index ]
-  resources :users, :only => [ :show, :index ]
-  get 'usershome', to: 'users#index', as: 'usershome'
-  
+  resources :users, :only => [ :show, :index ] do
+    resources :images, :except => [ :index ]
+  end
+
 end
