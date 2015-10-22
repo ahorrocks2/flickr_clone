@@ -6,11 +6,14 @@
 </div>
 <%= link_to "Add an Image", new_user_image_path(current_user) %>
 
+
 <div class="container-fluid">
   <% if current_user.images.any? %>
   <ul style="list-style:none">
     <% current_user.images.each do |image| %>
-      <li><%= link_to image_tag(image.upload.url(:display)), user_image_path(current_user.id, image.id) %></li>
+    <div class="container-fluid">
+      <li style="margin:10px"><%= link_to image_tag(image.upload.url(:display)), user_image_path(current_user.id, image.id) %></li>
+    </div>
     <% end %>
   </ul>
   <% end %>

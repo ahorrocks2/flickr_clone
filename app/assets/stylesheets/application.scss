@@ -15,3 +15,20 @@
     text-align: center;
     img { width: 100% }
 }
+
+.home {
+  background-image: url("blue-ridge-mountains.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: black;
+  .container-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0px 0px 25px 0px;
+  }
+  h3 {
+    color: white;
+  }
+}

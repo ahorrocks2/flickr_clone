@@ -1,1 +1,11 @@
-<h1>Welcome to Flickr-Clone</h1>
+<body class="home">
+  <h1>Welcome to Flickr-Clone</h1>
+  <div class="container-bottom">
+    <h3>House all your photos here!</h3>
+    <% if current_user %>
+      <%= link_to "Check out your photos!", user_path(current_user), class: "btn btn-primary btn-lg" %>
+    <% else %>
+      <%= link_to "Sign Up Today!", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+    <% end %>
+  </div>
+</body>
