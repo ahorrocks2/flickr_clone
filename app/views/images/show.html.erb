@@ -1,0 +1,6 @@
+<h2><%= @image.title %></h2>
+<h4><%= @image.caption %></h4>
+<h5><%= @image.upload_updated_at.to_formatted_s(:long) %></h5>
+<hr>
+
+<%= image_tag @image.upload.url %>
