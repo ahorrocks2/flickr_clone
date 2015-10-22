@@ -4,5 +4,8 @@ class UsersController < ApplicationController
     @images = @user.images
   end
 
+  def index
+    @users = User.all.order(username: :desc)
+  end
 
 end

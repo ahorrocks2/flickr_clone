@@ -1,18 +1,24 @@
 <div class="row">
   <h1>
-    <%= image_tag current_user.avatar.url(:thumb), class:"round-image-50" %>
-    <%= current_user.username %>
+    <%= image_tag @user.avatar.url(:thumb), class:"round-image-50" %>
+    <%= @user.username %>
   </h1>
 </div>
-<%= link_to "Add an Image", new_user_image_path(current_user) %>
 
+<% if @user == current_user %>
+  <%= link_to "Add an Image", new_user_image_path(current_user), class: "btn btn-default" %>
+<% end %>
+
+<% if current_user.admin? %>
+  <%= link_to "Edit Profile", edit_user_registration_path(@user), class: "btn btn-default" %>
+<% end %>
 
 <div class="container-fluid">
-  <% if current_user.images.any? %>
+  <% if @user.images.any? %>
   <ul style="list-style:none">
-    <% current_user.images.each do |image| %>
+    <% @user.images.each do |image| %>
     <div class="container-fluid">
-      <li style="margin:10px"><%= link_to image_tag(image.upload.url(:display)), user_image_path(current_user.id, image.id) %></li>
+      <li style="margin:10px"><%= link_to image_tag(image.upload.url(:display)), user_image_path(@user.id, image.id) %></li>
     </div>
     <% end %>
   </ul>
